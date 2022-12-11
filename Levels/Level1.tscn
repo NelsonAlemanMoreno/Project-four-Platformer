@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/nest.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Assets/Tiles.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Cave_backdrop.jpg" type="Texture" id=7]
 [ext_resource path="res://Collectable/Food.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Project-four-Platformer.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Enemy/Bat.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Tiles.png 0"
@@ -553,6 +555,11 @@ points = PoolVector2Array( 32, 32, 32, 32, 64, 64, 0, 64, 0, 0 )
 7/shapes = [  ]
 7/z_index = 0
 
+[sub_resource type="NavigationPolygon" id=20]
+vertices = PoolVector2Array( 3640, 323, 3703, 384, 3702, 499, 2626, 436, 2875, 374, 3262, 320, 1223, 4, 3389, 182, 3327, 245, 3260, 256, 3143, 251, 2941, 240, 1228, 133, 2681, 376, 2617, 372, 2675, 306, 3138, 306, 2875, 310, 2934, 308, 3895, 4, 3903, 187, 3775, 180, 3719, 122, 3591, 117, 3512, 186, 1991, 504, 2418, 438, 824, 68, 386, 253, 66, 255, 69, 64, 76, 0, 820, -1, 132, 440, 130, 322, 379, 321, 378, 388, 196, 502, 1593, 509, 521, 386, 1098, 327, 1095, 263, 1152, 261, 1655, 449, 1156, 132, 1659, 386, 951, 257, 1015, 258, 1016, 328, 1859, 245, 884, 64, 892, 131, 947, 133, 1732, 315, 1721, 389, 1789, 251, 1783, 311, 2433, 374, 1926, 323, 1866, 311, 1925, 443 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 9, 10, 11, 12 ), PoolIntArray( 13, 4, 3 ), PoolIntArray( 13, 3, 14, 15 ), PoolIntArray( 16, 5, 4, 17, 18 ), PoolIntArray( 19, 20, 21, 22 ), PoolIntArray( 6, 19, 22, 23 ), PoolIntArray( 6, 23, 24, 7 ), PoolIntArray( 3, 2, 25, 26 ), PoolIntArray( 12, 11, 18, 17, 15 ), PoolIntArray( 27, 28, 29, 30, 31, 32 ), PoolIntArray( 33, 34, 35, 36, 37 ), PoolIntArray( 38, 37, 36, 39 ), PoolIntArray( 40, 41, 42, 38 ), PoolIntArray( 43, 38, 42, 44, 12, 45 ), PoolIntArray( 46, 47, 48, 39 ), PoolIntArray( 16, 10, 9, 5 ), PoolIntArray( 12, 15, 14, 49 ), PoolIntArray( 27, 50, 51, 39, 28 ), PoolIntArray( 51, 52, 46, 39 ), PoolIntArray( 53, 54, 45, 12 ), PoolIntArray( 55, 56, 53, 12 ), PoolIntArray( 57, 58, 59, 49, 14 ), PoolIntArray( 57, 26, 25, 60, 58 ), PoolIntArray( 38, 39, 48, 40 ), PoolIntArray( 49, 55, 12 ) ]
+outlines = [ PoolVector2Array( 130, 322, 379, 321, 378, 388, 521, 386, 386, 253, 66, 255, 69, 64, 76, 0, 820, -1, 824, 68, 884, 64, 892, 131, 947, 133, 951, 257, 1015, 258, 1016, 328, 1098, 327, 1095, 263, 1152, 261, 1156, 132, 1228, 133, 1223, 4, 3895, 4, 3903, 187, 3775, 180, 3719, 122, 3591, 117, 3512, 186, 3389, 182, 3327, 245, 3260, 256, 3262, 320, 3640, 323, 3703, 384, 3702, 499, 1991, 504, 1925, 443, 1926, 323, 1866, 311, 1859, 245, 1789, 251, 1783, 311, 1732, 315, 1721, 389, 1659, 386, 1655, 449, 1593, 509, 196, 502, 132, 440 ), PoolVector2Array( 2433, 374, 2617, 372, 2626, 436, 2418, 438 ), PoolVector2Array( 2675, 306, 2875, 310, 2875, 374, 2681, 376 ), PoolVector2Array( 2941, 240, 3143, 251, 3138, 306, 2934, 308 ) ]
+
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
@@ -601,6 +608,9 @@ limit_bottom = 600
 
 [node name="Enemy_Container" type="Node2D" parent="."]
 
+[node name="Bat" parent="Enemy_Container" instance=ExtResource( 10 )]
+position = Vector2( 1369, 71 )
+
 [node name="Platform" type="TileMap" parent="."]
 position = Vector2( -1, 0 )
 tile_set = SubResource( 14 )
@@ -616,14 +626,29 @@ collision_mask = 2147483648
 format = 1
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
+position = Vector2( 273, 57 )
 process_mode = 0
 
 [node name="Food_Container" type="Node2D" parent="."]
+position = Vector2( 42, 3 )
 
 [node name="Food" parent="Food_Container" instance=ExtResource( 8 )]
 position = Vector2( 158, 228 )
 
 [node name="Food2" parent="Food_Container" instance=ExtResource( 8 )]
 position = Vector2( 3821, 146 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -25.0
+autoplay = true
+mix_target = 2
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+visible = false
+position = Vector2( 10, 4 )
+navpoly = SubResource( 20 )
 
 [connection signal="body_entered" from="Exit_to_2" to="Exit_to_2" method="_on_Exit_body_entered"]

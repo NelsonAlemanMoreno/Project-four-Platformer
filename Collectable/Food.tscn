@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Collectable/Food.gd" type="Script" id=1]
 [ext_resource path="res://Assets/food20.png" type="Texture" id=2]
-[ext_resource path="res://Assets/gold_collect.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Munch.wav" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 46.1736
@@ -17,7 +17,7 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Collect" type="AudioStreamPlayer2D" parent="."]
+[node name="Munch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_Food_body_entered"]

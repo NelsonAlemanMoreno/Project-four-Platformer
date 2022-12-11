@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/portal_start.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/ScyBox.png" type="Texture" id=8]
 [ext_resource path="res://Assets/land_backdrop-612x612.jpg" type="Texture" id=9]
 [ext_resource path="res://Collectable/Food.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Project-four-Platformer.mp3" type="AudioStream" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Tiles.png 0"
@@ -494,5 +495,10 @@ position = Vector2( 2248, 475 )
 
 [node name="Food2" parent="Food_Container" instance=ExtResource( 10 )]
 position = Vector2( 2331, 156 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -24.0
+autoplay = true
 
 [connection signal="body_entered" from="Exit_to_3" to="Exit_to_3" method="_on_Exit_body_entered"]
