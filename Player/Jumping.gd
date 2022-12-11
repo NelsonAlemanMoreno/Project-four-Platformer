@@ -14,6 +14,7 @@ func physics_process(_delta):
 		player.jump_power.x = clamp(player.jump_power.x + (player.move_vector().x * player.leap_speed), -player.max_leap, player.max_leap)
 	if Input.is_action_pressed("jump"):
 		player.jump_power.y = clamp(player.jump_power.y - player.jump_speed, -player.max_jump, 0)
+		
 	else:
 		player.velocity.y = 0
 		player.velocity += player.jump_power

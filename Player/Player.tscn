@@ -92,14 +92,13 @@ animations = [ {
 extents = Vector2( 19.75, 22.5 )
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 193, 202 )
+position = Vector2( 34, 33 )
 script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 14 )
 animation = "Idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
