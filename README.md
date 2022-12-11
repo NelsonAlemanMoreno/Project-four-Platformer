@@ -14,6 +14,8 @@ Dinosuar Sprite HandeMade by Nelson Aleman-Moreno
 
 Drum Sprite HandeMade by Nelson Aleman-Moreno
 
+The bat sprite was originally created by bagzie for Stendhal and was [reworked by AntumDeluge](https://opengameart.org/content/bat-rework). 
+
 
 Background land- (https://www.istockphoto.com/vector/simple-flat-pixel-art-illustration-of-cartoon-outdoor-landscape-background-pixel-gm1333010525-415679388)
 
